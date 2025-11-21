@@ -29,11 +29,11 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [ Solution & Impact](#Solution & Impact)
-3. [Features & Architecture](#Features & Architecture)
-4. [How to Run](#How to Run)
-5. [Environment Variables Create a .env file inside the backend directory](#Environment Variables Create a .env file inside the backend directory:)
-6. [Running the System Locally](#Running the System Locally)
+2. [Solution & Impact](#solution-impact)
+3. [Features & Architecture](#features-architecture)
+4. [How to Run](#how-to-run)
+5. [Environment Variables](#environment-variables)
+6. [Running the System Locally](#running-the-system-locally)
 7. [Links](#links)
 
 ---
