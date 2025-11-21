@@ -24,6 +24,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 - E/21/141, Fransisco R.D.D.K., [e21141@eng.pdn.ac.lk](mailto:e21141@eng.pdn.ac.lk)
 - E/21/193, Jayasinghe B.V.N., [e21193@eng.pdn.ac.lk](mailto:e21193@eng.pdn.ac.lk)
 - E/21/407, Thennakoon T.M.I.I.C., [e21407@eng.pdn.ac.lk](mailto:e21407@eng.pdn.ac.lk)
+  
+---
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -35,7 +37,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Introduction
 The 75Exhibition Heatmap Dashboard is a full-stack web application designed to manage and balance crowd density within the Computer Department exhibition hall (Smart City concept). It provides a real-time visual representation of visitor distribution, updating every 10 seconds. Additionally, it serves as an information hub where users can discover specific exhibits located within each zone by simply clicking on the respective area.
 
- 
+---
+
 ## Solution & Impact
 The Heatmap Dashboard provides:
     + Real-time Crowd Monitoring: Visualizes live occupancy across eight exhibition zones with data refreshing every 10 seconds.
@@ -45,6 +48,7 @@ The Heatmap Dashboard provides:
     + Data Storage: Stores geospatial or point-based intensity data for analytics.
 Impact: This centralized monitoring system simplifies event operations, supports quick decision-making during the exhibition, and enhances the visitor                experience by effectively managing crowd flow
 
+---
 
 ## Features & Architecture
  ### Key Features
@@ -58,40 +62,44 @@ Impact: This centralized monitoring system simplifies event operations, supports
     + Backend: Node.js + Express microservice exposing RESTful APIs.
     + Database: PostgreSQL for storing zone visitors, exhibit details, and point data.
     + Third-Party: Google Generative Language (Gemini) for optional AI-based search.
-    
+
+---
 
 ## How to Run
 ### Clone Repository
- git clone <repository-url>
- cd <repository-folder>
+  git clone <repository-url>
+  cd <repository-folder>
 ### Install Dependencies
 #### a) Backend
- cd backend
- npm install
+  cd backend
+  npm install
 #### b) Frontend
- cd frontend
- npm install
+  cd frontend
+  npm install
 
+---
 
 ## Environment Variables Create a .env file inside the backend directory:
- PORT=2000
- DATABASE_URL="Your Postgres connection string"
- LOCAL_DB_URL="Optional alternate DB URL"
- USE_POSTGIS=true
- GEMINI_API_KEY="Optional Google API Key"
+  PORT=2000
+  DATABASE_URL="Your Postgres connection string"
+  LOCAL_DB_URL="Optional alternate DB URL"
+  USE_POSTGIS=true
+  GEMINI_API_KEY="Optional Google API Key"
  
+---
 
 ## Running the System Locally
 ### a) Database Setup Ensure PostgreSQL is running. Use the provided SQL to create the database and seed data:
- psql -U postgres -h localhost -W
- \i backend/sql/create_zone_info.sql
+  psql -U postgres -h localhost -W
+  \i backend/sql/create_zone_info.sql
 ### b) Backend The backend will run on http://localhost:2000 (default).
- cd backend
- npm run dev
+  cd backend
+  npm run dev
 ### c) Frontend The frontend will run on http://localhost:5173.
- cd frontend
- npm run dev
+  cd frontend
+  npm run dev
 
+---
 
 ## Links
 
