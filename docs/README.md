@@ -4,7 +4,7 @@ permalink: index.html
 
 # Please update this with your repository name and title
 repository-name: e21-co227-SmartCityHeatMapGroup22
-title:Smart City Heat Map
+title:
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
