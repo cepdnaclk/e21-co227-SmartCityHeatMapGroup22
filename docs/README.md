@@ -37,18 +37,18 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Introduction
 The 75Exhibition Heatmap Dashboard is a full-stack web application designed to manage and balance crowd density within the Computer Department exhibition hall (Smart City concept). It provides a real-time visual representation of visitor distribution, updating every 10 seconds. Additionally, it serves as an information hub where users can discover specific exhibits located within each zone by simply clicking on the respective area.
 
----
-
 ## Solution & Impact
-The Heatmap Dashboard provides:
-    + Real-time Crowd Monitoring: Visualizes live occupancy across eight exhibition zones with data refreshing every 10 seconds.
-    + Smart City Crowd Balancing: Helps identify high-density areas to facilitate better crowd management decisions.
-    + Exhibit Discovery: Enables users to click on zones to inspect specific exhibits, making navigation easier.
-    + Search & Recommendation: Uses a Gemini proxy (AI) or local keywords to recommend zones based on topics.
-    + Data Storage: Stores geospatial or point-based intensity data for analytics.
-Impact: This centralized monitoring system simplifies event operations, supports quick decision-making during the exhibition, and enhances the visitor                experience by effectively managing crowd flow
 
----
+### Dashboard Features
+
++ **Real-time Crowd Monitoring:** Visualizes live occupancy across eight exhibition zones with data refreshing every 10 seconds.
++ **Smart City Crowd Balancing:** Helps identify high-density areas to facilitate better crowd management decisions.
++ **Exhibit Discovery:** Enables users to click on zones to inspect specific exhibits, making navigation easier.
++ **Search & Recommendation:** Uses a Gemini proxy (AI) or local keywords to recommend zones based on topics.
++ **Data Storage:** Stores geospatial or point-based intensity data for analytics.
+  
+Impact
+This centralized monitoring system simplifies event operations, supports quick decision-making during the exhibition, and enhances the visitor experience by effectively managing crowd flow.
 
 ## Features & Architecture
  ### Key Features
