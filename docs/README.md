@@ -66,14 +66,14 @@ Impact: This centralized monitoring system simplifies event operations, supports
 ---
 
 ## How to Run
-### Clone Repository
+#### Clone Repository
   git clone <repository-url>
   cd <repository-folder>
-### Install Dependencies
-#### a) Backend
+#### Install Dependencies
+##### a) Backend
   cd backend
   npm install
-#### b) Frontend
+##### b) Frontend
   cd frontend
   npm install
 
@@ -89,13 +89,13 @@ Impact: This centralized monitoring system simplifies event operations, supports
 ---
 
 ## Running the System Locally
-### a) Database Setup Ensure PostgreSQL is running. Use the provided SQL to create the database and seed data:
+#### a) Database Setup Ensure PostgreSQL is running. Use the provided SQL to create the database and seed data:
   psql -U postgres -h localhost -W
   \i backend/sql/create_zone_info.sql
-### b) Backend The backend will run on http://localhost:2000 (default).
+#### b) Backend The backend will run on http://localhost:2000 (default).
   cd backend
   npm run dev
-### c) Frontend The frontend will run on http://localhost:5173.
+#### c) Frontend The frontend will run on http://localhost:5173.
   cd frontend
   npm run dev
 
