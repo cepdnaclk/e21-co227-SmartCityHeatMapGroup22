@@ -37,6 +37,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 ## Introduction
 The 75Exhibition Heatmap Dashboard is a full-stack web application designed to manage and balance crowd density within the Computer Department exhibition hall (Smart City concept). It provides a real-time visual representation of visitor distribution, updating every 10 seconds. Additionally, it serves as an information hub where users can discover specific exhibits located within each zone by simply clicking on the respective area.
 
+---
+
 ## Solution & Impact
 
 
@@ -50,6 +52,7 @@ The 75Exhibition Heatmap Dashboard is a full-stack web application designed to m
   
 Impact
 This centralized monitoring system simplifies event operations, supports quick decision-making during the exhibition, and enhances the visitor experience by effectively managing crowd flow.
+
 ---
 
 ## Features & Architecture
