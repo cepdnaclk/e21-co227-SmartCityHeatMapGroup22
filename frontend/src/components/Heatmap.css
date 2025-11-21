@@ -1,0 +1,381 @@
+/* src/components/Heatmap.css */
+/* .heatmap-container {
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.0);
+} */
+
+.heatmap-container {
+  height: 100vh;     /* fallback for older browsers */
+  height: 100dvh;    /* ✅ mobile-safe: respects dynamic viewport height */
+  display: flex;
+  flex-direction: column;  /* header on top, content below */
+  box-sizing: border-box;
+  overflow: hidden;        /* stop page scroll */
+}
+
+
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+  padding-bottom: 2px;
+  border-bottom: 4px solid #e0e0e0;
+}
+
+.heatmap-header h2 {
+  margin: 0;
+  margin-top: -9px; 
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 34px;
+  display: flex;
+  justify-content: flex-start; /* default */
+  padding-left: 0%;  
+
+}
+
+
+.logo {
+  width: 125px;   /* adjust size */
+  height: auto;
+}
+
+
+.main-content {
+  display: flex;
+  gap: 0px;
+  align-items: stretch; /* make both equal height */
+}
+
+.map-section {
+  flex: 3;              /*  give more space to map */
+  min-width: 0;
+}
+
+.zone-details-sidebar {
+  flex: 1.2;            /* ✅ sidebar narrower */
+  max-width: 320px;     /* sidebar doesn’t stretch too wide */
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.map-container {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.heatmap-svg {
+  display: block;
+  width: 100%;   /* ✅ full width */
+  height: auto;  /* ✅ auto-scale */
+  border-radius: 6px;
+  background: white;
+}
+
+/* Zone shapes */
+.zone-shape {
+  transition: all 300ms ease;
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 0.8;
+  cursor: pointer;
+  vector-effect: non-scaling-stroke;
+}
+
+.zone-shape:hover {
+  stroke-width: 1.2;
+  stroke: #2c3e50;
+  filter: brightness(1.1);
+}
+
+/* Tooltip */
+/* Modal for zone details */
+.zone-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.zone-modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: min(520px, 92%);
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.2);
+  position: relative;
+}
+
+.zone-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.zone-modal-body h3 { margin: 0 0 8px 0; }
+.zone-modal-visitors { margin-bottom: 12px; font-weight: 600; }
+.zone-modal-exhibitions ul { padding-left: 18px; margin: 6px 0; }
+.zone-modal-empty { color: #7f8c8d; font-style: italic; }
+
+.add-exhibit-button {
+  padding: 6px 10px;
+  background: #2b7de9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-exhibit-button:hover { filter: brightness(0.95); }
+
+.delete-exhibit-button {
+  padding: 4px 8px;
+  background: #c62828;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.delete-exhibit-button:hover { filter: brightness(0.95); }
+
+.zone-modal-updating { font-size: 12px; color: #7f8c8d; margin-bottom: 8px; }
+.zone-modal-error { color: #c62828; font-weight: 600; margin-bottom: 8px; }
+
+/* Search widget (lower-right) */
+.heatmap-search {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: rgba(255,255,255,0.96);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.12);
+  width: 280px;
+  z-index: 9999;
+}
+.heatmap-search .search-label { display:block; font-size:13px; color:#34495e; margin-bottom:8px; }
+.heatmap-search .search-row { display:flex; gap:8px; }
+.heatmap-search input[type="text"]{ flex:1; padding:8px 10px; border-radius:6px; border:1px solid #e0e0e0 }
+.heatmap-search .search-button{ padding:8px 10px; background:#2b7de9; color:#fff; border:none; border-radius:6px; cursor:pointer }
+.heatmap-search .search-result{ margin-top:10px; font-weight:600; color:#2c3e50 }
+
+
+
+/* Legend */
+.heatmap-legend {
+  width: 280px;
+  margin-top: 2px;
+  user-select: none;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.legend-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.legend-gradient {
+  height: 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #7fd88f, #fff59b, #ffd8a6, #ffaaa5, #ff6b6b);
+  border: 1px solid #e0e0e0;
+}
+
+.legend-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-top: 8px;
+}
+
+/* Zone Details Sidebar */
+.zone-details-sidebar {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-width: 280px;
+}
+
+.zone-details-sidebar h3 {
+  margin: 0 0 20px 0;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 18px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.zones-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.zone-detail-item {
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zone-name {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.zone-numbers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.visitors-count {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.percentage {
+  font-size: 14px;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #b3d4ff, #2b7de9);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.last-updated {
+  text-align: center;
+  font-size: 12px;
+  color: #95a5a6;
+  font-style: italic;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Zone labels styling */
+.zone-label {
+  font-weight: 600;
+  pointer-events: none;
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Make sure labels are visible on top of zones */
+#zone-labels {
+  z-index: 10;
+}
+
+/* ✅ Responsive tweaks */
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .heatmap-legend {
+    width: 100%;
+     flex: 1;
+  }
+
+  .zone-details-sidebar {
+    width: 100%;
+    min-width: auto;
+    margin-top: 20px;
+  }
+}
+
+
+.legend-total-container {
+  display: flex;
+  align-items: center;   /* vertically center */
+  justify-content: space-between; /* space between legend and total */
+  gap: 4rem; /* spacing between them (adjust as needed) */
+
+}
+
+.zone-total {
+  background: #f0f6ff;
+  border-left: 4px solid #2b7de9;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  flex: 0.7;
+
+  
+}
+
+.zone-total-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.zone-total-numbers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-count {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.total-percentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3498db;
+}
