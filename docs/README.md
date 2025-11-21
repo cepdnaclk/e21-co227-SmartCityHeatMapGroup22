@@ -29,8 +29,12 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Other Sub Topics](#other-sub-topics)
-3. [Links](#links)
+2. [ Solution & Impact](#Solution & Impact)
+3. [Features & Architecture](#Features & Architecture)
+4. [How to Run](#How to Run)
+5. [Environment Variables Create a .env file inside the backend directory](#Environment Variables Create a .env file inside the backend directory:)
+6. [Running the System Locally](#Running the System Locally)
+7. [Links](#links)
 
 ---
 
