@@ -3,7 +3,7 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-XXX-project-template
+repository-name: e21-co227-SmartCityHeatMapGroup22
 title:
 ---
 
